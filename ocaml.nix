@@ -8,6 +8,7 @@ stdenv.mkDerivation rec {
   name = "ocaml-${version}+bs-${rev}";
   inherit src;
   configurePhase = ''
+    ls -la ocaml
     cd ocaml
     ./configure -prefix $out
   '';

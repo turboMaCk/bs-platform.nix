@@ -1,7 +1,7 @@
 { fetchgit }:
 fetchgit {
   url = "https://github.com/BuckleScript/bucklescript";
-  rev = "ca8d752d1d5ffdec64527eaeeef461373dcfd20a";
-  sha256 = "16n2ll7l9bc2208n2iw24j81lp8ap02s9b8zix2nby5ba4fbywn2";
+  rev = "59357b7a2a5063718a385438e5cb0de7bd3b5398";
+  sha256 = "03qcdgqqybxlby6drmgnjx48mp4c1i2nxihqj3qfclkr2lmk0i1m";
   deepClone = true;
 }

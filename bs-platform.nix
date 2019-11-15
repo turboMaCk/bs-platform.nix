@@ -1,14 +1,8 @@
 { stdenv, fetchgit, ninja, nodejs, ocamlPackages, python35 }:
 let
-  version = "6.2.0";
+  version = "6.2.1";
   ocamlver = "4.06.1";
-  src = fetchgit {
-    url = "https://github.com/BuckleScript/bucklescript";
-    rev = "ca8d752d1d5ffdec64527eaeeef461373dcfd20a";
-    sha256 = "16n2ll7l9bc2208n2iw24j81lp8ap02s9b8zix2nby5ba4fbywn2";
-    deepClone = true;
-  };
-
+  src = import ./src.nix { inherit fetchgit; };
   ocaml =  import ./ocaml.nix {
     inherit stdenv fetchgit;
   };
