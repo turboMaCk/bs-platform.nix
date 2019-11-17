@@ -1,7 +1,6 @@
-{ stdenv, fetchgit }:
+{ stdenv, src }:
 let
   rev = "6.2.0";
-  src = import ./src.nix { inherit fetchgit; };
 in
 stdenv.mkDerivation rec {
   version = "4.06.1";
@@ -14,9 +13,6 @@ stdenv.mkDerivation rec {
   '';
   buildPhase = ''
     make -j9 world.opt
-  '';
-  installPhase = ''
-    make install
   '';
 
   meta = with stdenv.lib; {

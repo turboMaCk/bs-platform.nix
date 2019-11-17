@@ -2,9 +2,14 @@
 let
   version = "6.2.1";
   ocamlver = "4.06.1";
-  src = import ./src.nix { inherit fetchgit; };
+  src = fetchgit {
+    url = "https://github.com/BuckleScript/bucklescript";
+    rev = "59357b7a2a5063718a385438e5cb0de7bd3b5398";
+    sha256 = "03qcdgqqybxlby6drmgnjx48mp4c1i2nxihqj3qfclkr2lmk0i1m";
+    deepClone = true;
+  };
   ocaml =  import ./ocaml.nix {
-    inherit stdenv fetchgit;
+    inherit stdenv src;
   };
   oPkgs = ocamlPackages.overrideScope' (self: super: {
     inherit ocaml;
@@ -17,7 +22,7 @@ stdenv.mkDerivation {
   BS_RELEASE_BUILD = "true";
   buildInputs = [ ocaml oPkgs.cppo oPkgs.camlp4 ninja nodejs python35 ];
   buildPhase = ''
-    mkdir -p $out 
+    mkdir -p $out
     cp -rf jscomp lib scripts vendor odoc_gen $out
     cp -r bsconfig.json package.json $out
 
@@ -28,7 +33,7 @@ stdenv.mkDerivation {
     done
 
     rm -f $out/vendor/ninja/snapshot/ninja.linux
-    cp ${ninja}/bin/ninja $out/vendor/ninja/snapshot/ninja.linux 
+    cp ${ninja}/bin/ninja $out/vendor/ninja/snapshot/ninja.linux
     node $out/scripts/ninja.js config
     node $out/scripts/ninja.js build
 
