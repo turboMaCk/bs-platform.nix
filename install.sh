@@ -5,6 +5,7 @@ pwd=$(pwd)
 tmpDir="$(mktemp -d -t bs-patform-nix.XXXXXXXXXX)"
 cleanup() {
     rm -rf "$tmpDir"
+    cd $pwd
 }
 trap cleanup EXIT INT QUIT TERM
 
@@ -14,4 +15,3 @@ git clone git@github.com:turboMaCk/bs-platform.nix.git .
 
 # Install using nix-env
 nix-env -if ./default.nix
-cd $pwd
