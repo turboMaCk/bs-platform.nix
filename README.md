@@ -25,8 +25,8 @@ let
     fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "18b0dd7bb41c054b9cc3e3141f437e3fab8e4884";
-      sha256 = "16fq5pnzcj7h15r1gdl9n49fg25ai76cngir6ci9xj8sc5kfcmja";
+      rev = "49fdbb03e0598500cf22ec497d037efb22809969";
+      sha256 = "0l1lp0rg0v9ynhb5s4vxzxsv1w0wixc5g5xw2pqdcjqx6acbzns8";
     };
 in
 import "${bs-platform}/bs-platform.nix" { inherit stdenv fetchgit ninja nodejs ocamlPackages python35; }
