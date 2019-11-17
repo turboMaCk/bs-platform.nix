@@ -1,4 +1,4 @@
-# BS Platform for NIX Expressions
+# BS Platform via Nix and Nix only.
 
 This project provides native from source builds for [BuckleScript](https://github.com/bucklescript/bucklescript).
 Official npm installation does't work on NixOS as it attempts to compile native dependecies in `postinstall` hook.
