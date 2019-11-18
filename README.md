@@ -31,3 +31,27 @@ let
 in
 import "${bs-platform}/bs-platform.nix" { inherit stdenv fetchgit ninja nodejs ocamlPackages python35; }
 ```
+
+## Examples
+
+### Nix Shell
+
+```nix
+{ pkgs ? import <nixpkgs> {} }:
+with pkgs;
+let
+  bs-platform-src =
+    pkgs.fetchFromGitHub {
+      owner = "turboMaCk";
+      repo = "bs-platform.nix";
+      rev = "18b0dd7bb41c054b9cc3e3141f437e3fab8e4884";
+      sha256 = "16fq5pnzcj7h15r1gdl9n49fg25ai76cngir6ci9xj8sc5kfcmja";
+    };
+  bs-platform =
+    import "${bs-platform-src}/bs-platform.nix"
+      { inherit stdenv fetchgit ninja nodejs ocamlPackages python35; };
+in
+mkShell {
+    buildInputs = [ bs-platform yarn ];
+}
+```
