@@ -19,17 +19,17 @@ or you using a `nix-shell` for your project you can use this expression:
 
 ```nix
 # bs-platform.nix
-{ fetchFromGitHub, stdenv, fetchgit, ninja, nodejs, ocamlPackages, python35, ... }:
+{ fetchFromGitHub, stdenv, fetchFromGitHub, ninja, nodejs, python35, ... }:
 let
   bs-platform =
     fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "49fdbb03e0598500cf22ec497d037efb22809969";
-      sha256 = "0l1lp0rg0v9ynhb5s4vxzxsv1w0wixc5g5xw2pqdcjqx6acbzns8";
+      rev = "2483f8a2b8d47e48175c1eb84e1f0b61afe02fe3";
+      sha256 = "1vjfgdyznz26awg2xkfw7s9a12bi58d2cbmmxkl8vywz0hkpsxy1";
     };
 in
-import "${bs-platform}/bs-platform.nix" { inherit stdenv fetchgit ninja nodejs ocamlPackages python35; }
+import "${bs-platform}/bs-platform.nix" { inherit stdenv fetchFromGitHub ninja nodejs python35; }
 ```
 
 ## Examples
@@ -44,12 +44,12 @@ let
     pkgs.fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "18b0dd7bb41c054b9cc3e3141f437e3fab8e4884";
-      sha256 = "16fq5pnzcj7h15r1gdl9n49fg25ai76cngir6ci9xj8sc5kfcmja";
+      rev = "2483f8a2b8d47e48175c1eb84e1f0b61afe02fe3";
+      sha256 = "1vjfgdyznz26awg2xkfw7s9a12bi58d2cbmmxkl8vywz0hkpsxy1";
     };
   bs-platform =
     import "${bs-platform-src}/bs-platform.nix"
-      { inherit stdenv fetchgit ninja nodejs ocamlPackages python35; };
+      { inherit stdenv fetchFromGitHub ninja nodejs python35; };
 in
 mkShell {
     buildInputs = [ bs-platform yarn ];
