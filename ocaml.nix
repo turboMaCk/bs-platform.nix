@@ -1,14 +1,8 @@
-{ stdenv, src }:
-let
-  rev = "6.2.0";
-in
+{ stdenv, src, version, bs-version }:
 stdenv.mkDerivation rec {
-  version = "4.06.1";
-  name = "ocaml-${version}+bs-${rev}";
-  inherit src;
+  inherit src version;
+  name = "ocaml-${version}+bs-${bs-version}";
   configurePhase = ''
-    ls -la ocaml
-    cd ocaml
     ./configure -prefix $out
   '';
   buildPhase = ''
@@ -17,6 +11,6 @@ stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     branch = "4.06";
-    platforms = with platforms; linux;
+    platforms = platforms.all;
   };
 }
