@@ -25,8 +25,8 @@ let
     fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "2483f8a2b8d47e48175c1eb84e1f0b61afe02fe3";
-      sha256 = "1vjfgdyznz26awg2xkfw7s9a12bi58d2cbmmxkl8vywz0hkpsxy1";
+      rev = "c20e8dc8703ad7975c99d76b5779d31c86078d98";
+      sha256 = "06wii6487crawi7ngbls59snvygqhh29jz5f9q106m3vp9jzy7h9";
     };
 in
 import "${bs-platform}/bs-platform.nix" { inherit stdenv fetchFromGitHub ninja nodejs python35; }
@@ -44,14 +44,22 @@ let
     pkgs.fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "2483f8a2b8d47e48175c1eb84e1f0b61afe02fe3";
-      sha256 = "1vjfgdyznz26awg2xkfw7s9a12bi58d2cbmmxkl8vywz0hkpsxy1";
+      rev = "c20e8dc8703ad7975c99d76b5779d31c86078d98";
+      sha256 = "06wii6487crawi7ngbls59snvygqhh29jz5f9q106m3vp9jzy7h9";
     };
   bs-platform =
     import "${bs-platform-src}/bs-platform.nix"
       { inherit stdenv fetchFromGitHub ninja nodejs python35; };
 in
 mkShell {
-    buildInputs = [ bs-platform yarn ];
+    buildInputs = [ bs-platform nodejs ];
+
+    shellHook = ''
+      mkdir -p node_modules
+      ln -sf ${bs-platform} node_modules/bs-platform
+      echo "bs-platform linked to $(pwd)/node_modules/bs-platform"
+
+      npm install
+    '';
 }
 ```
