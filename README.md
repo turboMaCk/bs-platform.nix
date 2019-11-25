@@ -36,6 +36,14 @@ import "${bs-platform}/bs-platform.nix" { inherit stdenv fetchFromGitHub ninja n
 
 ### Nix Shell
 
+BuckleScipt is expecting to find binaries within the `node_modules` and essentially just calls into
+them when ever you run any command within the project.
+Libraries and other dependencies are then usually installed by `npm` or `yarn`.
+**We recommend using npm** over yarn because yarn ignores the symlinks within `node_modules` and
+tries to reinstall all packages (same is true for symlink created by `bsb -init`).
+
+Your `shell.nix` may look like this:
+
 ```nix
 { pkgs ? import <nixpkgs> {} }:
 with pkgs;
@@ -56,7 +64,8 @@ mkShell {
 
     shellHook = ''
       mkdir -p node_modules
-      ln -sf ${bs-platform} node_modules/bs-platform
+      ln -sfn ${bs-platform} ./node_modules/bs-platform
+      ln -sfn ${bs-platform}/bin/* ./node_modules/.bin
       echo "bs-platform linked to $(pwd)/node_modules/bs-platform"
 
       npm install
