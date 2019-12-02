@@ -19,7 +19,7 @@ or you using a `nix-shell` for your project you can use this expression:
 
 ```nix
 # bs-platform.nix
-{ fetchFromGitHub, stdenv, fetchFromGitHub, ninja, nodejs, python35, ... }:
+{ stdenv, fetchFromGitHub, ninja, nodejs, python35, ... }:
 let
   bs-platform =
     fetchFromGitHub {
