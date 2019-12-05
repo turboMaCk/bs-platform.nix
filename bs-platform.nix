@@ -1,4 +1,4 @@
-{ stdenv, fetchFromGitHub, ninja, nodejs, python35 }:
+{ stdenv, fetchFromGitHub, ninja, nodejs, python3 }:
 let
   version = "6.2.1";
   ocaml-version = "4.06.1";
@@ -20,10 +20,10 @@ stdenv.mkDerivation {
   inherit src version;
   pname = "bs-platform";
   BS_RELEASE_BUILD = "true";
-  buildInputs = [ nodejs python35 ];
+  buildInputs = [ nodejs python3 ];
 
   patchPhase = ''
-    sed -i 's:./configure.py --bootstrap:python3.5 ./configure.py --bootstrap:' ./scripts/install.js
+    sed -i 's:./configure.py --bootstrap:python3 ./configure.py --bootstrap:' ./scripts/install.js
 
     mkdir -p ./native/${ocaml-version}/bin
     ln -sf ${ocaml}/bin/*  ./native/${ocaml-version}/bin
