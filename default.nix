@@ -1,7 +1,7 @@
 { pkgs ? import <nixpkgs> {} }:
 with pkgs;
 {
-  bs-platform6 = import ./build-6.nix {
+  bs-platform6 = import ./build-bs-platform.nix {
     inherit stdenv fetchFromGitHub ninja runCommand nodejs python3;
     version = "6.2.1";
     ocaml-version = "4.06.1";
@@ -13,7 +13,7 @@ with pkgs;
         fetchSubmodules = true;
     };
   };
-  bs-platform7 = import ./build-6.nix {
+  bs-platform7 = import ./build-bs-platform.nix {
     inherit stdenv fetchFromGitHub ninja runCommand nodejs python3;
     version = "7.0.1";
     ocaml-version = "4.06.1";

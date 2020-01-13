@@ -9,7 +9,7 @@ If you're in hurry just `nix-env` install this project.
 **Make sure you have [nix installed](https://nixos.org/nix/)!**
 
 ```
-$ curl https://github.com/turboMaCk/bs-platform.nix/blob/master/install.sh | sh
+$ nix-env -if https://github.com/turboMaCk/bs-platform.nix/archive/master.tar.gz -A bs-platform7
 ```
 
 ## Include to Your Expression
