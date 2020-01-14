@@ -31,7 +31,7 @@ or you using a `nix-shell` for your project you can use this expression:
 
 ```nix
 # bs-platform.nix
-{  pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {} }:
 let
   bs-platform-src =
     pkgs.fetchFromGitHub {
@@ -54,7 +54,7 @@ version 7.0.0:
 
 ```nix
 # bs-platform700.nix
-{  pkgs ? import <nixpkgs> {} }:
+{ pkgs ? import <nixpkgs> {} }:
 let
   bs-platform-src =
     pkgs.fetchFromGitHub {
