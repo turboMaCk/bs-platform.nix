@@ -1,6 +1,5 @@
 name: "Cachix"
 on:
-  pull_request:
   push:
 jobs:
   tests:
@@ -10,5 +9,5 @@ jobs:
     - uses: cachix/install-nix-action@v6
     - uses: cachix/cachix-action@v3
       with:
-        name: turbomack
+        name: bs-platform
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
