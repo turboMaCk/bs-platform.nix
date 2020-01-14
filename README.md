@@ -8,6 +8,11 @@ Official npm installation does't work on NixOS as it attempts to compile native 
 If you're in hurry just `nix-env` install this project.
 **Make sure you have [nix installed](https://nixos.org/nix/)!**
 
+> You can use [Cachix binary cache](https://bs-platform.cachix.org/) to get this project
+> ```
+> $ cachix use bs-platform
+> ```
+
 ```
 $ nix-env -if https://github.com/turboMaCk/bs-platform.nix/archive/master.tar.gz -A bs-platform7
 ```
