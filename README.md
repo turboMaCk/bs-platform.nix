@@ -40,8 +40,8 @@ let
     pkgs.fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "e3ca38272c47c32e9c223c8bde31fac050e89106";
-      sha256 = "18ryafbx31f4ars9k4qfz7k4vmz2z7d0xvyg1kn1x3amh27x3isz";
+      rev = "907068ab0d783ffc91d1cdc0a9e8a714282087b8";
+      sha256 = "1j9pc78lihb67bcd2zcy4d2chs8qkfmiyq32rwgg77ya4hxkr2dm";
     };
 in
 (import bs-platform-src { inherit pkgs; }).bs-platform7
@@ -63,8 +63,8 @@ let
     pkgs.fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "e3ca38272c47c32e9c223c8bde31fac050e89106";
-      sha256 = "18ryafbx31f4ars9k4qfz7k4vmz2z7d0xvyg1kn1x3amh27x3isz";
+      rev = "907068ab0d783ffc91d1cdc0a9e8a714282087b8";
+      sha256 = "1j9pc78lihb67bcd2zcy4d2chs8qkfmiyq32rwgg77ya4hxkr2dm";
     };
 in with pkgs;
 import "${bs-platform-src}/build-bs-platform.nix" {
@@ -107,8 +107,8 @@ let
     pkgs.fetchFromGitHub {
       owner = "turboMaCk";
       repo = "bs-platform.nix";
-      rev = "e3ca38272c47c32e9c223c8bde31fac050e89106";
-      sha256 = "18ryafbx31f4ars9k4qfz7k4vmz2z7d0xvyg1kn1x3amh27x3isz";
+      rev = "907068ab0d783ffc91d1cdc0a9e8a714282087b8";
+      sha256 = "1j9pc78lihb67bcd2zcy4d2chs8qkfmiyq32rwgg77ya4hxkr2dm";
     };
   bs-platform =
     (import bs-platform-src { inherit pkgs; }).bs-platform7;
