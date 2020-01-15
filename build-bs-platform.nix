@@ -1,7 +1,6 @@
 { stdenv, fetchFromGitHub, ninja, runCommand, nodejs, python3,
   ocaml-version, version, src,
   ocaml ? (import ./ocaml.nix {
-    bs-version = version;
     version = ocaml-version;
     inherit stdenv;
     src = "${src}/ocaml";
@@ -35,12 +34,11 @@ stdenv.mkDerivation {
   '';
 
   buildPhase = ''
-    node scripts/ninja.js build
+    # release build https://github.com/BuckleScript/bucklescript/issues/4091#issuecomment-574514891
+    node scripts/install.js
   '';
 
   installPhase = ''
-    node scripts/install.js
-
     mkdir -p $out/bin
 
     cp -rf jscomp lib vendor odoc_gen native $out
