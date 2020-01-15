@@ -1,5 +1,7 @@
 # BS Platform via Nix and Nix only.
 
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2FturboMaCk%2Fbs-platform.nix%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/turboMaCk/bs-platform.nix/goto?ref=master)
+
 Nix expressions for [BuckleScript](https://github.com/bucklescript/bucklescript) compiler known as `bs-platform`.
 Official npm installation does't work on NixOS as it attempts to compile native dependecies in `postinstall` hook.
 Furthermore nix provides several advantages over official npm distribution and can be used across variety of operating systems.
