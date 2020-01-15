@@ -1,7 +1,8 @@
 # BS Platform via Nix and Nix only.
 
-This project provides native from source builds for [BuckleScript](https://github.com/bucklescript/bucklescript).
+Nix expressions for [BuckleScript](https://github.com/bucklescript/bucklescript) compiler known as `bs-platform`.
 Official npm installation does't work on NixOS as it attempts to compile native dependecies in `postinstall` hook.
+Furthermore nix provides several advantages over official npm distribution and can be used across variety of operating systems.
 
 ## Quick Start
 
@@ -26,7 +27,7 @@ $ nix-env -if https://github.com/turboMaCk/bs-platform.nix/archive/master.tar.gz
 
 ## Include to Your Expression
 
-If you rock NixOS and what to install bs-platform as a system dependecy
+If you rock NixOS and what to install bs-platform as a system dependency
 or you using a `nix-shell` for your project you can use this expression:
 
 ```nix
@@ -46,8 +47,8 @@ in
 
 ## Custom Versions and Overriding
 
-Expression is build with overloading in mind. That's beaing said based on the
-version of choice it might require more or less overloading.
+Expression is build with overriding in mind. That's being said based on the
+version of choice it might require more or less customizations.
 
 This is an example of how `bs-platform.nix` can be used to build
 version 7.0.0:
@@ -77,17 +78,18 @@ import "${bs-platform-src}/build-bs-platform.nix" {
   };
 }
 ```
-Furthermore [overrideAttrs](https://nixos.org/nixpkgs/manual/#sec-pkg-overrideAttrs)
-can be used to to apply custom patches and more.
+
+Note that [overrideAttrs](https://nixos.org/nixpkgs/manual/#sec-pkg-overrideAttrs)
+can be used to apply custom patches etc.
 
 Please check [build-bs-platform.nix](build-bs-platform.nix) for more information
-like customizing OCaml versions and more.
+like customizing OCaml versions.
 
 ## Examples
 
 ### Nix Shell
 
-BuckleScipt is expecting to find binaries within the `node_modules` and essentially just calls into
+BuckleScript is expecting to find binaries within the `node_modules` and essentially just calls into
 them when ever you run any command within the project.
 Libraries and other dependencies are then usually installed by `npm` or `yarn`.
 **We recommend using npm** over yarn because yarn ignores the symlinks within `node_modules` and
