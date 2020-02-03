@@ -29,9 +29,7 @@ stdenv.mkDerivation {
     cp ${custom-ninja}/bin/ninja vendor/ninja/snapshot/ninja.linux
   '';
 
-  configurePhase = ''
-    node scripts/ninja.js config
-  '';
+  dontConfigure = true;
 
   buildPhase = ''
     # release build https://github.com/BuckleScript/bucklescript/issues/4091#issuecomment-574514891
